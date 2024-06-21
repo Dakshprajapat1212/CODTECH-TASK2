@@ -1,0 +1,105 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+using namespace std;
+
+class Student {
+private:
+    int studentID;
+    string name;
+    map<string, vector<int>> courses;
+
+public:
+    // Constructor
+    Student(int id, string studentName) {
+        studentID = id;
+        name = studentName;
+    }
+
+    // Add a course
+    void addCourse(string courseName) {
+        if (courses.find(courseName) == courses.end()) {
+            courses[courseName] = vector<int>();
+            cout << "Course added successfully.\n";
+        } else {
+            cout << "Course already exists.\n";
+        }
+    }
+
+    // Add a grade to a course
+    void addGrade(string courseName, int grade) {
+        if (courses.find(courseName) != courses.end()) {
+            courses[courseName].push_back(grade);
+            cout << "Grade added successfully.\n";
+        } else {
+            cout << "Course not found.\n";
+        }
+    }
+
+    // Edit student name
+    void editStudentInfo(string newName) {
+        name = newName;
+        cout << "Student name updated successfully.\n";
+    }
+
+    // Delete student information
+    void deleteStudentInfo() {
+        name = "";
+        courses.clear();
+        cout << "Student information deleted successfully.\n";
+    }
+
+    // Calculate the average grade for a course
+    double calculateAverageGrade(string courseName) {
+        if (courses.find(courseName) != courses.end()) {
+            vector<int>& grades = courses[courseName];
+            int sum = 0;
+            for (int grade : grades) {
+                sum += grade;
+            }
+            return grades.empty() ? 0 : static_cast<double>(sum) / grades.size();
+        } else {
+            cout << "Course not found.\n";
+            return -1;
+        }
+    }
+
+    // Print student information
+    void printStudentInfo() {
+        cout << "Student ID: " << studentID << "\n";
+        cout << "Name: " << name << "\n";
+        cout << "Courses and Grades:\n";
+        for (auto& course : courses) {
+            cout << "  " << course.first << ": ";
+            for (int grade : course.second) {
+                cout << grade << " ";
+            }
+            cout << "\n";
+        }
+    }
+};
+
+int main() {
+    // Example usage:
+    Student student1(1, "John Doe");
+
+    student1.addCourse("Math");
+    student1.addGrade("Math", 85);
+    student1.addGrade("Math", 90);
+
+    student1.addCourse("Science");
+    student1.addGrade("Science", 88);
+
+    student1.printStudentInfo();
+
+    cout << "Average grade in Math: " << student1.calculateAverageGrade("Math") << "\n";
+
+    student1.editStudentInfo("John Smith");
+    student1.printStudentInfo();
+
+    student1.deleteStudentInfo();
+    student1.printStudentInfo();
+
+    return 0;
+}
