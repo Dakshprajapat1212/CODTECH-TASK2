@@ -6,7 +6,7 @@
 *ID:* CT08DS1736 
 *Domain:* C++ Programming  
 *Duration:* May to June 2024  
-*Mentor:* SRAVANI GOUNI  
+*Mentor:* Santhosh kumar 
 
 ### Overview of the Project
 
@@ -33,3 +33,5 @@ The objective of this project is to create a student management system using C++
 #### Conclusion
 
 This project provided an excellent opportunity to apply and enhance C++ programming skills through the development of a functional student management system. It demonstrated the practical application of software development concepts such as system design, programming, debugging, and user interaction. The feedback collected from users will be invaluable for refining the system, ensuring it is both user-friendly and efficient. Overall, this project underscored the importance of continuous learning and adaptation in the field of software development.
+
+![Screenshot (826)](https://github.com/Dakshprajapat1212/CODTECH-TASK2/assets/172480550/5cc1d1ac-8e8e-49dd-b42d-cb1bc2d0cb51)
